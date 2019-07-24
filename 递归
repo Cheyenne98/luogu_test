@@ -1,0 +1,50 @@
+10 to 任意
+#include<bits/stdc++.h>  
+using namespace std;
+char mod[17]="0123456789ABCDEF";
+void conto(char*s,int n,int b)
+{
+	if(n==0)
+	{
+		strcpy(s,"");
+		return;
+	}
+	cout<<"di"<<endl;
+	conto(s,n/b,b);
+	cout<<"gui"<<endl;
+	int len=strlen(s);
+	s[len]=mod[n%b];
+
+	s[len+1]='\0'; 
+} 
+int main()
+{
+    int p,q;
+    cin>>p>>q;
+    char s[80];
+    conto(s,p,q);
+    cout<<s;
+	return 0;
+}
+
+任意 to 10
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main()
+{
+    int r,i=0,ans=0;
+    string n;
+    cin>>r>>n;//R表示进制,N表示要转换的数，ans表示要转换的结果。
+    while(n.size()!=i)
+    {
+        ans*=r;  
+		cout<<ans<<endl;     //我这里是把1看成0，把0看成1来算的。这样比较方便。其实都一样。
+        ans+=n[i]-'0';
+        cout<<ans<<endl; 
+        i++;
+    }
+    cout<<ans<<endl;
+    return 0;
+ } 
